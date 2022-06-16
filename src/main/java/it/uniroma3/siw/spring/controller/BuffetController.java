@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import it.uniroma3.siw.spring.controller.validator.BuffetValidator;
 import it.uniroma3.siw.spring.model.Buffet;
 import it.uniroma3.siw.spring.model.Chef;
 import it.uniroma3.siw.spring.service.BuffetService;
@@ -20,9 +21,12 @@ import it.uniroma3.siw.spring.service.ChefService;
 public class BuffetController {
 	@Autowired
 	private ChefService ps;
-	
+
 	@Autowired
 	private BuffetService bs;
+
+	@Autowired
+	private BuffetValidator bv;
 
 	@GetMapping("persona/{id}/buffet")
 	public String getBuffet(@PathVariable("id") Long id, Model model)	{
@@ -31,17 +35,25 @@ public class BuffetController {
 		model.addAttribute("persona",persona);
 		return "buffetForm.html";
 	}
-	
+
 	@PostMapping("persona/buffet/{idPersona}")
-	public String addPersona(@ModelAttribute("buffet") Buffet buffet, @PathVariable("idPersona") Long id, Model model)	{
+	public String addPersona(@Valid @ModelAttribute("buffet") Buffet buffet,BindingResult bindingResults , @PathVariable("idPersona") Long id,Model model)	{
 		Chef persona1 = ps.findById(id);
-		persona1.getBuffets().add(buffet);
-		ps.save(persona1);
+
+		if(!bindingResults.hasErrors())	{
+			persona1.getBuffets().add(buffet);
+			ps.save(persona1);
+			model.addAttribute("persona", persona1);
+			model.addAttribute("buffets", persona1.getBuffets());
+			return "chef.html";
+		}
+
 		model.addAttribute("persona", persona1);
-		model.addAttribute("buffets", persona1.getBuffets());
-		return "chef.html";
+		model.addAttribute("buffet", buffet);
+		return "buffetForm.html";
 	}
-	
+
+
 	@GetMapping("/buffet/{id}")
 	public String getPersona(@PathVariable("id") Long id, Model model)	{
 		Buffet buffet = bs.findById(id);
@@ -49,7 +61,7 @@ public class BuffetController {
 		model.addAttribute("piatti", buffet.getPiatti());
 		return "buffet.html";
 	}
-	
+
 	@GetMapping("/userBuffet/{id}")
 	public String getBuffetUser(@PathVariable("id") Long id, Model model)	{
 		Buffet buffet = bs.findById(id);
@@ -57,7 +69,7 @@ public class BuffetController {
 		model.addAttribute("piatti", buffet.getPiatti());
 		return "userBuffet.html";
 	}
-	
+
 	@GetMapping("/buffet/remove/{idBuffet}/{idChef}")
 	public String removeBuffet(@PathVariable("idBuffet") Long idB, @PathVariable("idChef") Long idC , Model model) {
 		System.out.println("\n\n\n\n\n\n\n BBBBBBBBBBBBBBBB");

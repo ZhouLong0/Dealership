@@ -41,7 +41,7 @@ public class ChefController {
 			model.addAttribute("buffets", persona.getBuffets());
 			return "chef.html";
 		}
-		return "personaForm.html";
+		return "chefForm.html";
 	}
 	
 	//richiede tutte le persone

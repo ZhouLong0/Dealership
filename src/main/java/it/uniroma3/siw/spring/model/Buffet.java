@@ -20,6 +20,7 @@ public class Buffet {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
+	@NotBlank
 	private String nome;
 	
 	private String descrizione;
