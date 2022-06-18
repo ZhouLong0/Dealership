@@ -15,7 +15,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Entity
-public class Chef {
+public class Modello {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -23,20 +23,15 @@ public class Chef {
 	@NotBlank
 	private String nome;
 	
-	@NotBlank
-	private String cognome;
-	
-	@NotNull
-	@Min(0)
-	@Max(120)
-	private Integer eta;
+	private String descrizione;
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	private List<Buffet> buffets;
+	private List<Versione> piatti;
 	
-	public Chef()	{
-		this.buffets = new ArrayList<Buffet>();
+	public Modello() {
+		this.piatti = new ArrayList<>();
 	}
+	
 	
 	public Long getId() {
 		return id;
@@ -54,35 +49,26 @@ public class Chef {
 		this.nome = nome;
 	}
 
-	public String getCognome() {
-		return cognome;
+	public String getDescrizione() {
+		return descrizione;
 	}
 
-	public void setCognome(String cognome) {
-		this.cognome = cognome;
+	public void setDescrizione(String descrizione) {
+		this.descrizione = descrizione;
 	}
 
-	public Integer getEta() {
-		return eta;
+	public void addPiatto(Versione versione) {
+		this.piatti.add(versione);
+	}
+	
+	public List<Versione> getPiatti()	{
+		return this.piatti;
 	}
 
-	public void setEta(Integer eta) {
-		this.eta = eta;
-	}
-
-	public List<Buffet> getBuffets() {
-		return buffets;
-	}
-//
-//	public void setBuffets(List<Buffet> buffets) {
-//		this.buffets = buffets;
-//	}
-//	
-//	public void addBuffet(Buffet buffet)	{
-//		this.buffets.add(buffet);
-//	}
 
 	
 	
+
 	
+
 }

@@ -5,8 +5,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import it.uniroma3.siw.spring.model.Buffet;
-import it.uniroma3.siw.spring.model.Chef;
+import it.uniroma3.siw.spring.model.Modello;
+import it.uniroma3.siw.spring.model.Filiale;
 import it.uniroma3.siw.spring.repository.BuffetRepository;
 import it.uniroma3.siw.spring.repository.ChefRepository;
 
@@ -16,7 +16,7 @@ public class BuffetService {
 	@Autowired
 	private BuffetRepository pr;
 	
-	public Buffet findById(Long id)	{
+	public Modello findById(Long id)	{
 		return pr.findById(id).get();
 	}
 	
@@ -25,13 +25,13 @@ public class BuffetService {
 	}
 
 	@Transactional
-	public void save(Buffet buffet)	{
-		pr.save(buffet);
+	public void save(Modello modello)	{
+		pr.save(modello);
 	}
 	
 	@Transactional
-	public void remove(Buffet buffet)	{
-		pr.delete(buffet);
+	public void remove(Modello modello)	{
+		pr.delete(modello);
 	}
 	
 }

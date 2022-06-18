@@ -2,8 +2,8 @@ package it.uniroma3.siw.spring.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
-import it.uniroma3.siw.spring.model.Piatto;
+import it.uniroma3.siw.spring.model.Versione;
 
-public interface PiattoRepository extends CrudRepository<Piatto, Long>{
+public interface PiattoRepository extends CrudRepository<Versione, Long>{
 
 }

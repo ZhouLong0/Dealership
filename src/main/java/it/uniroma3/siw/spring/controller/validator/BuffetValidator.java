@@ -8,7 +8,7 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 
-import it.uniroma3.siw.spring.model.Buffet;
+import it.uniroma3.siw.spring.model.Modello;
 import it.uniroma3.siw.spring.service.BuffetService;
 
 @Component
@@ -19,7 +19,7 @@ public class BuffetValidator implements Validator{
 	
 	@Override
 	public boolean supports(Class<?> pClass)	{
-		return Buffet.class.equals(pClass);
+		return Modello.class.equals(pClass);
 	}
 	
 	@Override
