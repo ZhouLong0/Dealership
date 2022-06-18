@@ -26,6 +26,8 @@ public class Filiale {
 	@NotBlank
 	private String cognome;
 	
+	private String phone;
+	
 	@NotNull
 	@Min(0)
 	@Max(120)
@@ -81,6 +83,14 @@ public class Filiale {
 //	public void addBuffet(Buffet buffet)	{
 //		this.buffets.add(buffet);
 //	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 
 	
 	

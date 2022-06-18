@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>RomaTre Catering</title>
+
+
+
+<link rel="stylesheet" th:href=@{css/style.css}>
+
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+	<!-- Page Navbar -->
+	<nav id="scrollspy"
+		class="navbar page-navbar navbar-light navbar-expand-md fixed-top"
+		data-spy="affix" data-offset-top="20">
+		<div class="container">
+			<a class="navbar-brand" href="#"><strong class="text-primary">Roma3</strong>
+				<span class="text-dark">Catering</span></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/userDishes}">Menù</a></li>
+					<li class="nav-item"><a class="nav-link" href="/userChefs">Chefs</a>
+					</li>
+					<li class="nav-item ml-md-4"><a
+						class="nav-link btn btn-primary" href="components.html">Login</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- End of Page Navbar -->
+
+	<!-- Page Header -->
+	<header id="home" class="header">
+		<div class="header-content">
+			<h6>Login :</h6>
+			<form th:action="@{/login}" method="POST">
+				<div>
+					<div>
+						<span>Username:</span> <span><input name="username"
+							type="text" required /></span>
+					</div>
+					<br></br>
+					<div>
+						<span>Password:</span> <span><input name="password"
+							type="password" required /></span>
+					</div>
+					<br></br>
+					<div>
+						<span><button class="btn btn-outline-primary btn-sm" type="submit">Login</button></span>
+					</div>
+				</div>
+			</form>
+		</div>
+	</header>
+	<!-- End of Page Header -->
+
+
+
+	<!-- Section -->
+	<section class="pb-0">
+		<!-- Container -->
+		<div class="container">
+			<!-- Pre footer -->
+			<div class="pre-footer">
+				<ul class="list">
+					<li class="list-head">
+						<h6 class="font-weight-bold">ABOUT US</h6>
+					</li>
+					<li class="list-body">
+						<p>We are a Catering managed by students of RomaTre University</p>
+						<a href="#"><strong class="text-primary">RomaTre</strong> <span
+							class="text-dark">Catering</span></a>
+					</li>
+				</ul>
+
+				<ul class="list">
+					<li class="list-head">
+						<h6 class="font-weight-bold">CONTACT INFO</h6>
+					</li>
+					<li class="list-body">
+						<p>Contact us and we'll get back to you within 24 hours.</p>
+						<p>
+							<i class="ti-location-pin"></i> Via RomaTre
+						</p>
+						<p>
+							<i class="ti-email"></i> Romatrecatering@uniroma3.com
+						</p>
+					</li>
+				</ul>
+			</div>
+			<!-- End of Pre footer -->
+
+			<!-- foooter -->
+			<footer class="footer">
+				<p>Copyright 2022</p>
+			</footer>
+			<!-- End of Footer-->
+
+		</div>
+		<!--End of Container -->
+	</section>
+	<!-- End of Section -->
+
+
+</body>
+</html>
+

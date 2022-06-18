@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>RomaTre Catering</title>
+
+
+
+<link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+	<!-- Page Navbar -->
+	<nav id="scrollspy"
+		class="navbar page-navbar navbar-light navbar-expand-md fixed-top"
+		data-spy="affix" data-offset-top="20">
+		<div class="container">
+			<a class="navbar-brand" href="/"><strong class="text-primary">Roma3</strong>
+				<span class="text-dark">Catering</span></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse"
+				data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item"><a class="nav-link" th:href="@{/default}">Home</a></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/admin/dishes}">Menù</a></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/admin/chefs}">Chefs</a></li>
+					<li class="nav-item ml-md-4"><a
+						class="nav-link btn btn-primary" th:href="@{/logout}">Logout</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<!-- End of Page Navbar -->
+
+	<!-- Page Header -->
+	<header id="home" class="header">
+		<div class="header-content">
+			<h6>New ingredient :</h6>
+			<form th:action="@{/piatto/ingrediente/} + ${piatto.id}"
+				method="post" th:object="${ingrediente}">
+
+				<br></br>
+				<div>
+					nome: <input type="text" th:field="*{nome}" />
+
+				</div>
+				<br></br>
+				<div>
+					descrizione: <input type="text" th:field="*{descrizione}" />
+
+				</div>
+				<br></br>
+				<div>
+					origine: <input type="text" th:field="*{origine}" />
+
+				</div>
+				<br></br>
+				<div>
+					<button class="btn btn-outline-primary btn-sm" type="submit">Conferma</button>
+				</div>
+			</form>
+
+		</div>
+	</header>
+	<!-- End of Page Header -->
+
+
+
+	<!-- Section -->
+	<section class="pb-0">
+		<!-- Container -->
+		<div class="container">
+			<!-- Pre footer -->
+			<div class="pre-footer">
+				<ul class="list">
+					<li class="list-head">
+						<h6 class="font-weight-bold">ABOUT US</h6>
+					</li>
+					<li class="list-body">
+						<p>We are a Catering managed by students of RomaTre University</p>
+						<a href="#"><strong class="text-primary">RomaTre</strong> <span
+							class="text-dark">Catering</span></a>
+					</li>
+				</ul>
+
+				<ul class="list">
+					<li class="list-head">
+						<h6 class="font-weight-bold">CONTACT INFO</h6>
+					</li>
+					<li class="list-body">
+						<p>Contact us and we'll get back to you within 24 hours.</p>
+						<p>
+							<i class="ti-location-pin"></i> Via RomaTre
+						</p>
+						<p>
+							<i class="ti-email"></i> Romatrecatering@uniroma3.com
+						</p>
+					</li>
+				</ul>
+			</div>
+			<!-- End of Pre footer -->
+
+			<!-- foooter -->
+			<footer class="footer">
+				<p>Copyright 2022</p>
+			</footer>
+			<!-- End of Footer-->
+
+		</div>
+		<!--End of Container -->
+	</section>
+	<!-- End of Section -->
+
+	<!-- core  -->
+
+
+</body>
+</html>
+
