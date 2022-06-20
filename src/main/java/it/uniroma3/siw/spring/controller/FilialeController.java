@@ -17,13 +17,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import it.uniroma3.siw.spring.controller.validator.ChefValidator;
 import it.uniroma3.siw.spring.model.Filiale;
-import it.uniroma3.siw.spring.model.Prodotto;
-import it.uniroma3.siw.spring.service.ChefService;
+import it.uniroma3.siw.spring.service.FilialeService;
 
 @Controller
-public class ChefController {
+public class FilialeController {
 	@Autowired
-	private ChefService ps;
+	private FilialeService ps;
 	@Autowired
 	private ChefValidator validator;
 	

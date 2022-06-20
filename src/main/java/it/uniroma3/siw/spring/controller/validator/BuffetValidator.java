@@ -9,13 +9,13 @@ import org.springframework.validation.Validator;
 
 
 import it.uniroma3.siw.spring.model.Modello;
-import it.uniroma3.siw.spring.service.BuffetService;
+import it.uniroma3.siw.spring.service.ModelloService;
 
 @Component
 public class BuffetValidator implements Validator{
 
 	@Autowired
-	private BuffetService personaService;
+	private ModelloService personaService;
 	
 	@Override
 	public boolean supports(Class<?> pClass)	{

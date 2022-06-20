@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import it.uniroma3.siw.spring.model.Versione;
 
-public interface PiattoRepository extends CrudRepository<Versione, Long>{
+public interface VersioneRepository extends CrudRepository<Versione, Long>{
 
 }

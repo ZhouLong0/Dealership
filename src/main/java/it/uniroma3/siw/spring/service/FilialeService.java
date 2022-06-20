@@ -9,12 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import it.uniroma3.siw.spring.model.Filiale;
-import it.uniroma3.siw.spring.repository.ChefRepository;
+import it.uniroma3.siw.spring.repository.FilialeRepository;
 
 @Service
-public class ChefService {
+public class FilialeService {
 	@Autowired
-	private ChefRepository pr;
+	private FilialeRepository pr;
 	
 	@Transactional
 	public void save(Filiale persona)	{

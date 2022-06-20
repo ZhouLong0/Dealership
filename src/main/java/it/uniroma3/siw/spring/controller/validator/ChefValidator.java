@@ -8,13 +8,13 @@ import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
 import it.uniroma3.siw.spring.model.Filiale;
-import it.uniroma3.siw.spring.service.ChefService;
+import it.uniroma3.siw.spring.service.FilialeService;
 
 @Component
 public class ChefValidator implements Validator{
 
 	@Autowired
-	private ChefService personaService;
+	private FilialeService personaService;
 	
 	@Override
 	public boolean supports(Class<?> pClass)	{

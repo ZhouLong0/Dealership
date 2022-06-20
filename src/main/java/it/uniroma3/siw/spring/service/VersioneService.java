@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 
 import it.uniroma3.siw.spring.model.Modello;
 import it.uniroma3.siw.spring.model.Versione;
-import it.uniroma3.siw.spring.repository.BuffetRepository;
-import it.uniroma3.siw.spring.repository.PiattoRepository;
+import it.uniroma3.siw.spring.repository.ModelloRepository;
+import it.uniroma3.siw.spring.repository.VersioneRepository;
 
 @Service
-public class PiattoService {
+public class VersioneService {
 
 	@Autowired
-	private PiattoRepository pr;
+	private VersioneRepository pr;
 	
 	public Versione findById(Long id)	{
 		return pr.findById(id).get();

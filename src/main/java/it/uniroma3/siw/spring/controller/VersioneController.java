@@ -14,18 +14,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import it.uniroma3.siw.spring.model.Modello;
 import it.uniroma3.siw.spring.model.Filiale;
 import it.uniroma3.siw.spring.model.Versione;
-import it.uniroma3.siw.spring.service.BuffetService;
-import it.uniroma3.siw.spring.service.ChefService;
-import it.uniroma3.siw.spring.service.PiattoService;
+import it.uniroma3.siw.spring.service.ModelloService;
+import it.uniroma3.siw.spring.service.FilialeService;
+import it.uniroma3.siw.spring.service.VersioneService;
 
 @Controller
-public class PiattoController {
+public class VersioneController {
 	
 	@Autowired
-	private BuffetService bs;
+	private ModelloService bs;
 	
 	@Autowired
-	private PiattoService pis;
+	private VersioneService pis;
 
 	@GetMapping("buffet/piatto/{idBuffet}")
 	public String getBuffet(@PathVariable("idBuffet") Long id, Model model)	{

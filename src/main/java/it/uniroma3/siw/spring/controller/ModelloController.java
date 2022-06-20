@@ -14,16 +14,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import it.uniroma3.siw.spring.controller.validator.BuffetValidator;
 import it.uniroma3.siw.spring.model.Modello;
 import it.uniroma3.siw.spring.model.Filiale;
-import it.uniroma3.siw.spring.service.BuffetService;
-import it.uniroma3.siw.spring.service.ChefService;
+import it.uniroma3.siw.spring.service.ModelloService;
+import it.uniroma3.siw.spring.service.FilialeService;
 
 @Controller
-public class BuffetController {
+public class ModelloController {
 	@Autowired
-	private ChefService ps;
+	private FilialeService ps;
 
 	@Autowired
-	private BuffetService bs;
+	private ModelloService bs;
 
 	@Autowired
 	private BuffetValidator bv;

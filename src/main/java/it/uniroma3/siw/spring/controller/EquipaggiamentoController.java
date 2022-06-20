@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import it.uniroma3.siw.spring.model.Modello;
 import it.uniroma3.siw.spring.model.Equipaggiamento;
 import it.uniroma3.siw.spring.model.Versione;
-import it.uniroma3.siw.spring.service.PiattoService;
+import it.uniroma3.siw.spring.service.VersioneService;
 
 @Controller
-public class IngredienteController {
+public class EquipaggiamentoController {
 
 	@Autowired
-	private PiattoService pis;
+	private VersioneService pis;
 
 	@GetMapping("piatto/ingrediente/{idPiatto}")
 	public String getBuffet(@PathVariable("idPiatto") Long id, Model model)	{
