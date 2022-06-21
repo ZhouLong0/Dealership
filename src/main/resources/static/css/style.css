@@ -3100,14 +3100,14 @@ nav.page-navbar.affix .navbar-brand .text-dark {
 }
 
 .header {
-  background: #efefef url(../images/header.jpg);
+  background: #efefef url(../images/background.jpg);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
   text-align: center;
   color: white;
   position: relative;
-  height: 598px;
+  height: 630px;
   position: relative;
 }
 
@@ -3147,7 +3147,7 @@ nav.page-navbar.affix .navbar-brand .text-dark {
 .header .header-content h3 {
   margin-bottom: 15px;
   font-size: calc(10px + (50 - 35) * ((100vw - 300px) / (1200 - 300)));
-  color:  #A16AE8;
+  color:  #ffff80;
   font-style: italic;
 }
 
