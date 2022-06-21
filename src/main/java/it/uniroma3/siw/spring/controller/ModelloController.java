@@ -82,5 +82,33 @@ public class ModelloController {
 		model.addAttribute("buffets", filiale.getBuffets());
 		return "chef.html";
 	}
+	
+	@GetMapping("persona/modifyBuffet/{idBuffet}/{idChef}")
+	public String getModifyBuffetForm(@PathVariable("idBuffet") Long id,@PathVariable("idChef") Long idc , Model model)	{
+		model.addAttribute("oldBuffet", bs.findById(id));
+		model.addAttribute("chef", ps.findById(idc));
+		model.addAttribute("buffet", new Modello());
+		return "buffetModifyForm.html";
+	}
+	
+	@PostMapping("persona/modifyBuffet/{idBuffet}/{idChef}")
+	public String getModifyBuffet(@Valid @ModelAttribute("buffet") Modello buffet,BindingResult bindingResults , @PathVariable("idBuffet") Long id, @PathVariable("idChef") Long idc,Model model)	{
+		Modello oldBuffet = bs.findById(id);
+		Filiale chef = ps.findById(idc);
+		
+		if(!bindingResults.hasErrors())	{
+			oldBuffet.setNome(buffet.getNome());
+			oldBuffet.setDescrizione(buffet.getDescrizione());
+			bs.save(oldBuffet);
+			ps.save(chef);
+			model.addAttribute("persona", chef);
+			model.addAttribute("buffets", chef.getBuffets());
+			return "chef.html";
+		}
+
+		model.addAttribute("persona", chef);
+		model.addAttribute("buffet", oldBuffet);
+		return "buffetModifyForm.html";
+	}
 
 }
