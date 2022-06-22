@@ -15,6 +15,7 @@ public class User {
 	private Long id;
 	private String nome;
 	private String cognome;
+	private String ruolo;
 	
 	public Long getId() {
 		return id;
@@ -38,6 +39,14 @@ public class User {
 	
 	public void setCognome(String cognome) {
 		this.cognome = cognome;
+	}
+
+	public String getRuolo() {
+		return ruolo;
+	}
+
+	public void setRuolo(String ruolo) {
+		this.ruolo = ruolo;
 	}
 
 }

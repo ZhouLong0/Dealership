@@ -19,21 +19,21 @@ public class EquipaggiamentoController {
 	@Autowired
 	private VersioneService pis;
 
-	@GetMapping("piatto/ingrediente/{idPiatto}")
-	public String getBuffet(@PathVariable("idPiatto") Long id, Model model)	{
+	@GetMapping("versione/ingrediente/{idPiatto}")
+	public String getBuffet(@PathVariable("idVersione") Long id, Model model)	{
 		model.addAttribute("ingrediente", new Equipaggiamento());
 		Versione versione = pis.findById(id);
-		model.addAttribute("piatto", versione);
+		model.addAttribute("versione", versione);
 		return "ingredienteForm.html";
 	}
 	
-	@PostMapping("piatto/ingrediente/{idPiatto}")
-	public String addPiatto(@ModelAttribute("ingrediente") Equipaggiamento equipaggiamento, @PathVariable("idPiatto") Long id, Model model)	{
-		Versione piatto1 = pis.findById(id);
-		piatto1.addIngredienti(equipaggiamento);
-		pis.save(piatto1);
-		model.addAttribute("piatto", piatto1);
-		model.addAttribute("ingredienti", piatto1.getIngredienti());
-		return "piatto.html";
+	@PostMapping("versione/ingrediente/{idVersione}")
+	public String addVersione(@ModelAttribute("ingrediente") Equipaggiamento equipaggiamento, @PathVariable("idVersione") Long id, Model model)	{
+		Versione versione1 = pis.findById(id);
+		versione1.addIngredienti(equipaggiamento);
+		pis.save(versione1);
+		model.addAttribute("versione", versione1);
+		model.addAttribute("ingredienti", versione1.getIngredienti());
+		return "versione.html";
 	}
 }

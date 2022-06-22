@@ -34,10 +34,10 @@ public class Filiale {
 	private Integer eta;
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	private List<Modello> modellos;
+	private List<Modello> modelli;
 	
 	public Filiale()	{
-		this.modellos = new ArrayList<Modello>();
+		this.modelli = new ArrayList<Modello>();
 	}
 	
 	public Long getId() {
@@ -72,8 +72,8 @@ public class Filiale {
 		this.eta = eta;
 	}
 
-	public List<Modello> getBuffets() {
-		return modellos;
+	public List<Modello> getModelli() {
+		return modelli;
 	}
 //
 //	public void setBuffets(List<Buffet> buffets) {

@@ -12,7 +12,7 @@ import it.uniroma3.siw.spring.model.Modello;
 import it.uniroma3.siw.spring.service.ModelloService;
 
 @Component
-public class BuffetValidator implements Validator{
+public class ModelloValidator implements Validator{
 
 	@Autowired
 	private ModelloService personaService;

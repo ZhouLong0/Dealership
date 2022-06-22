@@ -26,10 +26,10 @@ public class Modello {
 	private String descrizione;
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	private List<Versione> piatti;
+	private List<Versione> versioni;
 	
 	public Modello() {
-		this.piatti = new ArrayList<>();
+		this.versioni = new ArrayList<>();
 	}
 	
 	
@@ -57,12 +57,12 @@ public class Modello {
 		this.descrizione = descrizione;
 	}
 
-	public void addPiatto(Versione versione) {
-		this.piatti.add(versione);
+	public void addVersione(Versione versione) {
+		this.versioni.add(versione);
 	}
 	
-	public List<Versione> getPiatti()	{
-		return this.piatti;
+	public List<Versione> getVersioni()	{
+		return this.versioni;
 	}
 
 

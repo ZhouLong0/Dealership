@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import it.uniroma3.siw.spring.controller.validator.BuffetValidator;
+import it.uniroma3.siw.spring.controller.validator.ModelloValidator;
 import it.uniroma3.siw.spring.model.Modello;
 import it.uniroma3.siw.spring.model.Filiale;
 import it.uniroma3.siw.spring.service.ModelloService;
@@ -26,89 +26,89 @@ public class ModelloController {
 	private ModelloService bs;
 
 	@Autowired
-	private BuffetValidator bv;
+	private ModelloValidator bv;
 
-	@GetMapping("persona/{id}/buffet")
-	public String getBuffet(@PathVariable("id") Long id, Model model)	{
-		model.addAttribute("buffet", new Modello());
-		Filiale persona = ps.findById(id);
-		model.addAttribute("persona",persona);
-		return "buffetForm.html";
+	@GetMapping("filiale/{id}/modello")
+	public String getModello(@PathVariable("id") Long id, Model model)	{
+		model.addAttribute("modello", new Modello());
+		Filiale filiale = ps.findById(id);
+		model.addAttribute("filiale",filiale);
+		return "modelloForm.html";
 	}
 
-	@PostMapping("persona/buffet/{idPersona}")
-	public String addPersona(@Valid @ModelAttribute("buffet") Modello modello,BindingResult bindingResults , @PathVariable("idPersona") Long id,Model model)	{
-		Filiale persona1 = ps.findById(id);
+	@PostMapping("filiale/modello/{idFiliale}")
+	public String addFiliale(@Valid @ModelAttribute("modello") Modello modello,BindingResult bindingResults , @PathVariable("idFiliale") Long id,Model model)	{
+		Filiale filiale = ps.findById(id);
 
 		if(!bindingResults.hasErrors())	{
-			persona1.getBuffets().add(modello);
-			ps.save(persona1);
-			model.addAttribute("persona", persona1);
-			model.addAttribute("buffets", persona1.getBuffets());
+			filiale.getModelli().add(modello);
+			ps.save(filiale);
+			model.addAttribute("filiale", filiale);
+			model.addAttribute("modelli", filiale.getModelli());
 			return "chef.html";
 		}
 
-		model.addAttribute("persona", persona1);
-		model.addAttribute("buffet", modello);
-		return "buffetForm.html";
+		model.addAttribute("filiale", filiale);
+		model.addAttribute("modello", modello);
+		return "modelloForm.html";
 	}
 
 
-	@GetMapping("/buffet/{id}")
-	public String getPersona(@PathVariable("id") Long id, Model model)	{
+	@GetMapping("/modello/{id}")
+	public String getFiliale(@PathVariable("id") Long id, Model model)	{
 		Modello modello = bs.findById(id);
-		model.addAttribute("buffet",modello);
-		model.addAttribute("piatti", modello.getPiatti());
-		return "buffet.html";
+		model.addAttribute("modello",modello);
+		model.addAttribute("versioni", modello.getVersioni());
+		return "modello.html";
 	}
 
-	@GetMapping("/userBuffet/{id}")
-	public String getBuffetUser(@PathVariable("id") Long id, Model model)	{
+	@GetMapping("/userModello/{id}")
+	public String getModelloUser(@PathVariable("id") Long id, Model model)	{
 		Modello modello = bs.findById(id);
-		model.addAttribute("buffet",modello);
-		model.addAttribute("piatti", modello.getPiatti());
-		return "userBuffet.html";
+		model.addAttribute("modello",modello);
+		model.addAttribute("versioni", modello.getVersioni());
+		return "userModello.html";
 	}
 
-	@GetMapping("/buffet/remove/{idBuffet}/{idChef}")
-	public String removeBuffet(@PathVariable("idBuffet") Long idB, @PathVariable("idChef") Long idC , Model model) {
+	@GetMapping("/modello/remove/{idModello}/{idFiliale}")
+	public String removeModello(@PathVariable("idModello") Long idB, @PathVariable("idFiliale") Long idC , Model model) {
 		System.out.println("\n\n\n\n\n\n\n BBBBBBBBBBBBBBBB");
 		Filiale filiale = ps.findById(idC);
 		Modello modello = bs.findById(idB);
-		filiale.getBuffets().remove(modello);
+		filiale.getModelli().remove(modello);
 		ps.save(filiale);
 		bs.deleteById(idB);
-		model.addAttribute("persona", filiale);
-		model.addAttribute("buffets", filiale.getBuffets());
-		return "chef.html";
+		model.addAttribute("filiale", filiale);
+		model.addAttribute("modelli", filiale.getModelli());
+		return "FILIALE.html";
 	}
 	
-	@GetMapping("persona/modifyBuffet/{idBuffet}/{idChef}")
-	public String getModifyBuffetForm(@PathVariable("idBuffet") Long id,@PathVariable("idChef") Long idc , Model model)	{
-		model.addAttribute("oldBuffet", bs.findById(id));
+	@GetMapping("filiale/modifyModello/{idModello}/{idFiliale}")
+	public String getModifyModelloForm(@PathVariable("idModello") Long id,@PathVariable("idFiliale") Long idc , Model model)	{
+		model.addAttribute("oldModello", bs.findById(id));
 		model.addAttribute("chef", ps.findById(idc));
-		model.addAttribute("buffet", new Modello());
-		return "buffetModifyForm.html";
+		model.addAttribute("modello", new Modello());
+		return "modelloModifyForm.html";
 	}
 	
-	@PostMapping("persona/modifyBuffet/{idBuffet}/{idChef}")
-	public String getModifyBuffet(@Valid @ModelAttribute("buffet") Modello buffet,BindingResult bindingResults , @PathVariable("idBuffet") Long id, @PathVariable("idChef") Long idc,Model model)	{
-		Modello oldBuffet = bs.findById(id);
-		Filiale chef = ps.findById(idc);
+	@PostMapping("filiale/modifyModello/{idModello}/{idFiliale}")
+	public String getModifyModello(@Valid @ModelAttribute("modello") Modello modello,BindingResult bindingResults , @PathVariable("idModello") Long id, @PathVariable("idFiliale") Long idc,Model model)	{
+		Modello oldModello = bs.findById(id);
+		Filiale filiale = ps.findById(idc);
 		
 		if(!bindingResults.hasErrors())	{
-			oldBuffet.setNome(buffet.getNome());
-			oldBuffet.setDescrizione(buffet.getDescrizione());
-			bs.save(oldBuffet);
-			ps.save(chef);
-			model.addAttribute("persona", chef);
-			model.addAttribute("buffets", chef.getBuffets());
-			return "chef.html";
+			oldModello.setNome(modello.getNome());
+			oldModello.setDescrizione(modello.getDescrizione());
+			bs.save(oldModello);
+			ps.save(filiale);
+			model.addAttribute("filiale", filiale);
+			model.addAttribute("modello", filiale.getModelli());
+			return "filiale.html";
 		}
 
-		model.addAttribute("persona", chef);
-		model.addAttribute("buffet", oldBuffet);
-		return "buffetModifyForm.html";
+		model.addAttribute("filiale", filiale);
+		model.addAttribute("modello", oldModello);
+		return "modelloModifyForm.html";
 	}
 
 }

@@ -27,39 +27,39 @@ public class VersioneController {
 	@Autowired
 	private VersioneService pis;
 
-	@GetMapping("buffet/piatto/{idBuffet}")
+	@GetMapping("buffet/versione/{idBuffet}")
 	public String getBuffet(@PathVariable("idBuffet") Long id, Model model)	{
-		model.addAttribute("piatto", new Versione());
+		model.addAttribute("versione", new Versione());
 		Modello modello = bs.findById(id);
 		model.addAttribute("buffet", modello);
-		return "piattoForm.html";
+		return "versioneForm.html";
 	}
 	
-	@PostMapping("buffet/piatto/{idBuffet}")
-	public String addPiatto(@ModelAttribute("piatto") Versione versione, @PathVariable("idBuffet") Long id, Model model)	{
+	@PostMapping("buffet/versione/{idBuffet}")
+	public String addVersione(@ModelAttribute("versione") Versione versione, @PathVariable("idBuffet") Long id, Model model)	{
 		Modello buffet1 = bs.findById(id);
-		buffet1.addPiatto(versione);
+		buffet1.addVersione(versione);
 		bs.save(buffet1);
 		model.addAttribute("buffet", buffet1);
-		model.addAttribute("piatti", buffet1.getPiatti());
+		model.addAttribute("versioni", buffet1.getVersioni());
 		return "buffet.html";
 	}
 	
 	
-	@GetMapping("/piatto/{id}")
-	public String getPiatto(@PathVariable("id") Long id, Model model)	{
+	@GetMapping("/versione/{id}")
+	public String getVersione(@PathVariable("id") Long id, Model model)	{
 		Versione versione = pis.findById(id);
-		model.addAttribute("piatto",versione);
+		model.addAttribute("versione",versione);
 		model.addAttribute("ingredienti", versione.getIngredienti());
-		return "piatto.html";
+		return "versione.html";
 	}
 	
-	@GetMapping("/userPiatto/{id}")
+	@GetMapping("/userVersione/{id}")
 	public String getPiattoUser(@PathVariable("id") Long id, Model model)	{
 		Versione versione = pis.findById(id);
-		model.addAttribute("piatto",versione);
+		model.addAttribute("versione",versione);
 		model.addAttribute("ingredienti", versione.getIngredienti());
-		return "userPiatto.html";
+		return "userVersione.html";
 	}
 	
 

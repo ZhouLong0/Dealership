@@ -1,54 +1,52 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-<title>RomaTre Catering</title>
+	<meta charset="utf-8">
+	<title>RomaTre Catering</title>
 
 
-
-<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" th:href=@{css/style.css}>
 
 </head>
+
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
 
 	<!-- Page Navbar -->
-	<nav id="scrollspy"
-		class="navbar page-navbar navbar-light navbar-expand-md fixed-top"
-		data-spy="affix" data-offset-top="20">
+	<nav id="scrollspy" class="navbar page-navbar navbar-light navbar-expand-md fixed-top" data-spy="affix"
+		data-offset-top="20">
 		<div class="container">
-			<a class="navbar-brand" href="#"><strong class="text-primary">Roma3</strong>
-				<span class="text-dark">Catering</span></a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
+			<a class="navbar-brand" href="/"><strong class="text-primary">Car</strong>
+				<span class="text-dark">3</span></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item"><a class="nav-link" th:href="@{/default}">Home</a></li>
-					<li class="nav-item"><a class="nav-link"
-						th:href="@{/userDishes}">Menù</a></li>
-					<li class="nav-item"><a class="nav-link" href="/userChefs">Chefs</a>
+					<li class="nav-item"><a class="nav-link" href="/">Home</a>
 					</li>
-					<li class="nav-item ml-md-4"><a
-						class="nav-link btn btn-primary" th:href="@{/logout}">Logout</a></li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/personaForm}">Models</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/userChefs}">Branches</a>
+					</li>
+					<li class="nav-item ml-md-4"><a class="nav-link btn btn-primary" th:href="@{/login}">Login</a>
+					</li>
+					<li class="nav-item ml-md-4"><a class="nav-link btn btn-primary" th:href="@{/register}">Register</a>
+					</li>
 				</ul>
 			</div>
 		</div>
 	</nav>
 	<!-- End of Page Navbar -->
 
+
 	<header id="home" class="header">
 		<div class="overlay"></div>
 		<div class="header-content">
-			<h6>Our Chefs Team :</h6>
-			<h3>"Cook for your guests as if they were family, and cook with
-				love."</h3>
+			<h6>Our Branches:</h6>
+			<h3>"Top branches opened only for you"</h3>
 		</div>
 	</header>
 
@@ -64,9 +62,10 @@
 				<div class="col-md-5">
 					<ul>
 						<li th:each="persona : ${persone}"><a href="persona.html"
-							th:href="@{'/userChef' + '/' + ${persona.id}}"
-							th:text="${persona.nome} + ' ' + ${persona.cognome}">PaoloRossi</a>
-							<br></br></li>
+								th:href="@{'/userChef' + '/' + ${persona.id}}"
+								th:text="${persona.nome} + ' ' + ${persona.cognome}">PaoloRossi</a>
+							<br></br>
+						</li>
 					</ul>
 				</div>
 
@@ -98,9 +97,8 @@
 						<h6 class="font-weight-bold">ABOUT US</h6>
 					</li>
 					<li class="list-body">
-						<p>We are a Catering managed by students of RomaTre University</p>
-						<a href="#"><strong class="text-primary">RomaTre</strong> <span
-							class="text-dark">Catering</span></a>
+						<p>We are a dealership managed by students of RomaTre University</p> <a href="#"><strong
+								class="text-primary">CAR</strong> <span class="text-dark">3</span></a>
 					</li>
 				</ul>
 
@@ -114,7 +112,7 @@
 							<i class="ti-location-pin"></i> Via RomaTre
 						</p>
 						<p>
-							<i class="ti-email"></i> Romatrecatering@uniroma3.com
+							<i class="ti-email"></i> Car3@uniroma3.com
 						</p>
 					</li>
 				</ul>
@@ -123,7 +121,9 @@
 
 			<!-- foooter -->
 			<footer class="footer">
-				<p>Copyright 2022</p>
+				<p>
+					Copyright 2022
+				</p>
 			</footer>
 			<!-- End of Footer-->
 
@@ -134,5 +134,5 @@
 
 
 </body>
-</html>
 
+</html>

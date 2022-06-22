@@ -37,7 +37,7 @@ public class FilialeController {
 			
 			ps.save(persona);
 			model.addAttribute("persona", persona);
-			model.addAttribute("buffets", persona.getBuffets());
+			model.addAttribute("buffets", persona.getModelli());
 			return "chef.html";
 		}
 		return "chefForm.html";
@@ -62,7 +62,7 @@ public class FilialeController {
 	public String getPersona(@PathVariable("id") Long id, Model model)	{
 		Filiale persona = ps.findById(id);
 		model.addAttribute("persona",persona);
-		model.addAttribute("buffets", persona.getBuffets());
+		model.addAttribute("buffets", persona.getModelli());
 		return "chef.html";
 	}
 	
@@ -70,7 +70,7 @@ public class FilialeController {
 	public String getChef(@PathVariable("id") Long id, Model model)	{
 		Filiale persona = ps.findById(id);
 		model.addAttribute("persona",persona);
-		model.addAttribute("buffets", persona.getBuffets());
+		model.addAttribute("buffets", persona.getModelli());
 		return "userChef.html";
 	}
 	
