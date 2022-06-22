@@ -27,7 +27,6 @@ public class Equipaggiamento {
 		return id;
 	}
 
-
 	public void setId(Long id) {
 		this.id = id;
 	}

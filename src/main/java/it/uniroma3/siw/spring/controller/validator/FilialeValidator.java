@@ -11,10 +11,10 @@ import it.uniroma3.siw.spring.model.Filiale;
 import it.uniroma3.siw.spring.service.FilialeService;
 
 @Component
-public class ChefValidator implements Validator{
+public class FilialeValidator implements Validator{
 
 	@Autowired
-	private FilialeService personaService;
+	private FilialeService filialeService;
 	
 	@Override
 	public boolean supports(Class<?> pClass)	{
@@ -23,7 +23,7 @@ public class ChefValidator implements Validator{
 	
 	@Override
 	public void validate(Object target, Errors errors)	{
-		if(this.personaService.alreadyExists((Filiale) target))	{
+		if(this.filialeService.alreadyExists((Filiale) target))	{
 			errors.reject("persona.duplicato");
 		}
 	}

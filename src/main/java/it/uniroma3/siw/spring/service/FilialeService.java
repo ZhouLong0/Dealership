@@ -17,8 +17,8 @@ public class FilialeService {
 	private FilialeRepository pr;
 	
 	@Transactional
-	public void save(Filiale persona)	{
-		pr.save(persona);
+	public void save(Filiale filiale)	{
+		pr.save(filiale);
 	}
 	
 	public Filiale findById(Long id)	{
@@ -26,14 +26,14 @@ public class FilialeService {
 	}
 	
 	public List<Filiale> findAll()	{
-		List<Filiale> persone = new ArrayList<Filiale>();
-		for(Filiale p : pr.findAll())
-			persone.add(p);
-		return persone;
+		List<Filiale> filiali = new ArrayList<>();
+		for(Filiale f : pr.findAll())
+			filiali.add(f);
+		return filiali;
 	}
 	
-	public boolean alreadyExists(Filiale persona)	{
-		return pr.existsByNomeAndCognomeAndEta(persona.getNome(), persona.getCognome(), persona.getEta());
+	public boolean alreadyExists(Filiale filiale)	{
+		return pr.existsByNomeAndCognomeAndEta(filiale.getNome(), filiale.getCognome(), filiale.getEta());
 	}
 
 }

@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import it.uniroma3.siw.spring.controller.validator.ChefValidator;
+import it.uniroma3.siw.spring.controller.validator.FilialeValidator;
 import it.uniroma3.siw.spring.model.Filiale;
 import it.uniroma3.siw.spring.service.FilialeService;
 
@@ -24,66 +24,66 @@ public class FilialeController {
 	@Autowired
 	private FilialeService ps;
 	@Autowired
-	private ChefValidator validator;
+	private FilialeValidator validator;
 	
 	//convenzione: get per operazioni di lettura, post per operazioni di scrittura
 	//binding dei dati
 	
-	@PostMapping("/persona")
-	public String addPersona(@Valid @ModelAttribute("persona") Filiale persona, BindingResult bindingResults, Model model)	{
-		validator.validate(persona, bindingResults);
+	@PostMapping("/filiale")
+	public String addFiliale(@Valid @ModelAttribute("filiale") Filiale filiale, BindingResult bindingResults, Model model)	{
+		validator.validate(filiale, bindingResults);
 		
 		if(!bindingResults.hasErrors())	{
 			
-			ps.save(persona);
-			model.addAttribute("persona", persona);
-			model.addAttribute("buffets", persona.getModelli());
-			return "chef.html";
+			ps.save(filiale);
+			model.addAttribute("filiale", filiale);
+			model.addAttribute("modelli", filiale.getModelli());
+			return "filiale.html";
 		}
-		return "chefForm.html";
+		return "filialeForm.html";
 	}
 	
 	//richiede tutte le persone
-	@GetMapping("/persona")
-	public String getPersone(Model model)	{
-		 List<Filiale> persone = ps.findAll();
-		 model.addAttribute("persone", persone);
-		 return "persone.html";
+	@GetMapping("/filiale")
+	public String getFiliali(Model model)	{
+		 List<Filiale> filiali = ps.findAll();
+		 model.addAttribute("filiali", filiali);
+		 return "filiale.html";
 	}
 	
-	@GetMapping("/userChefs")
-	public String getPersoneUser(Model model)	{
-		 List<Filiale> persone = ps.findAll();
-		 model.addAttribute("persone", persone);
-		 return "userChefs.html";
+	@GetMapping("/userFiliali")
+	public String getFilialiUser(Model model)	{
+		 List<Filiale> filiali = ps.findAll();
+		 model.addAttribute("filiali", filiali);
+		 return "userFiliali.html";
 	}
 	
-	@GetMapping("/persona/{id}")
-	public String getPersona(@PathVariable("id") Long id, Model model)	{
-		Filiale persona = ps.findById(id);
-		model.addAttribute("persona",persona);
-		model.addAttribute("buffets", persona.getModelli());
-		return "chef.html";
+	@GetMapping("/filiale/{id}")
+	public String getFiliale(@PathVariable("id") Long id, Model model)	{
+		Filiale filiale = ps.findById(id);
+		model.addAttribute("filiale",filiale);
+		model.addAttribute("modelli", filiale.getModelli());
+		return "filiale.html";
 	}
 	
-	@GetMapping("/userChef/{id}")
+	@GetMapping("/userFiliale/{id}")
 	public String getChef(@PathVariable("id") Long id, Model model)	{
-		Filiale persona = ps.findById(id);
-		model.addAttribute("persona",persona);
-		model.addAttribute("buffets", persona.getModelli());
-		return "userChef.html";
+		Filiale filiale = ps.findById(id);
+		model.addAttribute("filiale",filiale);
+		model.addAttribute("modelli", filiale.getModelli());
+		return "userFiliale.html";
 	}
 	
-	@GetMapping("/personaForm")
-	public String getPersona(Model model)	{
-		model.addAttribute("persona", new Filiale());
-		return "chefForm.html";
+	@GetMapping("/filialeForm")
+	public String getFiliale(Model model)	{
+		model.addAttribute("filiale", new Filiale());
+		return "filialeForm.html";
 	}
 	
-	@RequestMapping(value="/admin/chefs", method = RequestMethod.GET)
+	@RequestMapping(value="/admin/filiali", method = RequestMethod.GET)
     public String addProdotto(Model model) {
-		List<Filiale> persone = ps.findAll();
-		 model.addAttribute("persone", persone);
-        return "chefs.html";
+		List<Filiale> filiali = ps.findAll();
+		model.addAttribute("filiali", filiali);
+        return "filiali.html";
     }
 }

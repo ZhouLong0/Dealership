@@ -12,10 +12,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import it.uniroma3.siw.spring.controller.validator.ModelloValidator;
-import it.uniroma3.siw.spring.model.Modello;
 import it.uniroma3.siw.spring.model.Filiale;
-import it.uniroma3.siw.spring.service.ModelloService;
+import it.uniroma3.siw.spring.model.Modello;
 import it.uniroma3.siw.spring.service.FilialeService;
+import it.uniroma3.siw.spring.service.ModelloService;
 
 @Controller
 public class ModelloController {
@@ -45,7 +45,7 @@ public class ModelloController {
 			ps.save(filiale);
 			model.addAttribute("filiale", filiale);
 			model.addAttribute("modelli", filiale.getModelli());
-			return "chef.html";
+			return "filiale.html";
 		}
 
 		model.addAttribute("filiale", filiale);
@@ -80,13 +80,13 @@ public class ModelloController {
 		bs.deleteById(idB);
 		model.addAttribute("filiale", filiale);
 		model.addAttribute("modelli", filiale.getModelli());
-		return "FILIALE.html";
+		return "filiale.html";
 	}
 	
 	@GetMapping("filiale/modifyModello/{idModello}/{idFiliale}")
 	public String getModifyModelloForm(@PathVariable("idModello") Long id,@PathVariable("idFiliale") Long idc , Model model)	{
 		model.addAttribute("oldModello", bs.findById(id));
-		model.addAttribute("chef", ps.findById(idc));
+		model.addAttribute("filiale", ps.findById(idc));
 		model.addAttribute("modello", new Modello());
 		return "modelloModifyForm.html";
 	}

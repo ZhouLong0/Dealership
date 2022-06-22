@@ -24,7 +24,7 @@ public class Versione {
 	private String descrizione;
 	
 	@OneToMany(cascade = CascadeType.ALL)
-	private List<Equipaggiamento> ingredienti;
+	private List<Equipaggiamento> equipaggiamenti;
 	
 
 	public Long getId() {
@@ -56,25 +56,18 @@ public class Versione {
 	}
 
 
-	public List<Equipaggiamento> getIngredienti() {
-		return ingredienti;
+	public List<Equipaggiamento> getEquipaggiamenti() {
+		return equipaggiamenti;
 	}
 
 
-	public void setIngredienti(List<Equipaggiamento> ingredienti) {
-		this.ingredienti = ingredienti;
+	public void setEquipaggiamenti(List<Equipaggiamento> equipaggiamenti) {
+		this.equipaggiamenti = equipaggiamenti;
 	}
 	
-	public void addIngredienti(Equipaggiamento equipaggiamento) {
-		this.ingredienti.add(equipaggiamento);
+	public void addEquipaggiamento(Equipaggiamento equipaggiamento) {
+		this.equipaggiamenti.add(equipaggiamento);
 	}
-	
-	
-	
-	
-	
-	
-	
 	
 
 }

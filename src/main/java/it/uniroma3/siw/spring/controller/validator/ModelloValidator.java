@@ -15,7 +15,7 @@ import it.uniroma3.siw.spring.service.ModelloService;
 public class ModelloValidator implements Validator{
 
 	@Autowired
-	private ModelloService personaService;
+	private ModelloService modelloService;
 	
 	@Override
 	public boolean supports(Class<?> pClass)	{
