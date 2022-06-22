@@ -7,8 +7,6 @@
 
 <title>RomaTre Catering</title>
 
-
-
 <link rel="stylesheet" href="/css/style.css">
 
 </head>
@@ -19,7 +17,7 @@
 		class="navbar page-navbar navbar-light navbar-expand-md fixed-top"
 		data-spy="affix" data-offset-top="20">
 		<div class="container">
-			<a class="navbar-brand" href="#"><strong class="text-primary">Roma3</strong>
+			<a class="navbar-brand" href="/"><strong class="text-primary">Roma3</strong>
 				<span class="text-dark">Catering</span></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarSupportedContent"
@@ -46,38 +44,58 @@
 
 	<!-- Page Header -->
 	<header id="home" class="header">
+		<div class="overlay"></div>
 		<div class="header-content">
-			<h6>New Chef :</h6>
-			<form th:action="@{/persona}" method="post" th:object="${persona}">
-				<div th:if="${#fields.hasGlobalErrors()}">
-					<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
-				</div>
-				<br></br>
-				<div>
-					nome: <input type="text" th:field="*{nome}" />
-					<div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
-				</div>
-				<br></br>
-				<div>
-					cognome: <input type="text" th:field="*{cognome}" />
-					<div th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></div>
-				</div>
-				<br></br>
-				<div>
-					eta: <input type="text" th:field="*{eta}" />
-					<div th:if="${#fields.hasErrors('eta')}" th:errors="*{eta}"></div>
-				</div>
-				<br></br>
-				<div>
-					<button class="btn btn-outline-primary btn-sm" type="submit">Conferma</button>
-				</div>
-			</form>
+			<h6>
+				<span th:text="${buffet.nome}">Paolo</span>
+
+			</h6>
+			<h3>
+				<span th:text="${buffet.descrizione}">Rossi</span>
+			</h3>
 		</div>
 	</header>
 	<!-- End of Page Header -->
 
 
-	
+	<!-- section -->
+	<section>
+
+
+		<!-- Container -->
+		<div class="container">
+			<!-- Row -->
+			<div class="row justify-content-between align-items-center">
+				<div class="col-md-5">
+				<h4>Dishes of the buffet</h4><br></br>
+					<ul>
+					<li th:each="piatto : ${piatti}"><a 
+						th:href="@{'/piatto' + '/' + ${piatto.id}}"
+						th:text="${piatto.nome}">PaoloRossi</a>
+						<br></br>
+					</li>
+				</ul>
+					<a class="btn btn-outline-primary btn-sm" th:href="@{'/buffet/piatto/' + ${buffet.id}}">Add</a>
+
+				</div>
+
+				<div class="col-md-6">
+					<div class="img-wrapper">
+						<div class="after right"></div>
+						<img src="/images/buffet-1.jpg" class="w-100" alt="About Us">
+					</div>
+				</div>
+			</div>
+			<!-- End of Row -->
+		</div>
+		<!-- End of Container-->
+
+
+	</section>
+	<!-- End of Section -->
+
+
+
 	<!-- Section -->
 	<section class="pb-0">
 		<!-- Container -->
@@ -89,12 +107,11 @@
 						<h6 class="font-weight-bold">ABOUT US</h6>
 					</li>
 					<li class="list-body">
-						<p>We are a Catering managed by students of RomaTre University</p>
-						<a href="#"><strong class="text-primary">RomaTre</strong> <span
-							class="text-dark">Catering</span></a>
+						<p>We are a dealership managed by students of RomaTre University</p> <a href="#"><strong
+							class="text-primary">CAR</strong> <span class="text-dark">3</span></a>
 					</li>
 				</ul>
-
+				
 				<ul class="list">
 					<li class="list-head">
 						<h6 class="font-weight-bold">CONTACT INFO</h6>
@@ -105,7 +122,7 @@
 							<i class="ti-location-pin"></i> Via RomaTre
 						</p>
 						<p>
-							<i class="ti-email"></i> Romatrecatering@uniroma3.com
+							<i class="ti-email"></i> Car3@uniroma3.com
 						</p>
 					</li>
 				</ul>
@@ -114,7 +131,9 @@
 
 			<!-- foooter -->
 			<footer class="footer">
-				<p>Copyright 2022</p>
+				<p>
+					Copyright 2022
+				</p>
 			</footer>
 			<!-- End of Footer-->
 
@@ -126,4 +145,3 @@
 
 </body>
 </html>
-

@@ -19,7 +19,7 @@
 		class="navbar page-navbar navbar-light navbar-expand-md fixed-top"
 		data-spy="affix" data-offset-top="20">
 		<div class="container">
-			<a class="navbar-brand" href="/"><strong class="text-primary">Roma3</strong>
+			<a class="navbar-brand" href="#"><strong class="text-primary">Roma3</strong>
 				<span class="text-dark">Catering</span></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarSupportedContent"
@@ -47,34 +47,38 @@
 	<!-- Page Header -->
 	<header id="home" class="header">
 		<div class="header-content">
-			<h6>New dish :</h6>
-			<form th:action="@{/buffet/piatto/} + ${buffet.id}" method="post" th:object="${piatto}">
-		
+			<h6>New Chef :</h6>
+			<form th:action="@{/persona}" method="post" th:object="${persona}">
+				<div th:if="${#fields.hasGlobalErrors()}">
+					<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
+				</div>
 				<br></br>
 				<div>
 					nome: <input type="text" th:field="*{nome}" />
-					
+					<div th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
 				</div>
 				<br></br>
 				<div>
-					descrizione: <input type="text" th:field="*{descrizione}" />
-					
+					cognome: <input type="text" th:field="*{cognome}" />
+					<div th:if="${#fields.hasErrors('cognome')}" th:errors="*{cognome}"></div>
 				</div>
 				<br></br>
-				
+				<div>
+					eta: <input type="text" th:field="*{eta}" />
+					<div th:if="${#fields.hasErrors('eta')}" th:errors="*{eta}"></div>
+				</div>
 				<br></br>
 				<div>
 					<button class="btn btn-outline-primary btn-sm" type="submit">Conferma</button>
 				</div>
 			</form>
-
 		</div>
 	</header>
 	<!-- End of Page Header -->
 
 
 	
-	<!-- Section -->
+		<!-- Section -->
 	<section class="pb-0">
 		<!-- Container -->
 		<div class="container">
