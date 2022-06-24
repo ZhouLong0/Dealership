@@ -47,7 +47,7 @@
 	<!-- Page Header -->
 	<header id="home" class="header">
 		<div class="header-content">
-			<h6>New Chef :</h6>
+			<h6>New Branch :</h6>
 			<form th:action="@{/filiale}" method="post" th:object="${filiale}">
 				<div th:if="${#fields.hasGlobalErrors()}">
 					<p th:each="err : ${#fields.globalErrors()}" th:text="${err}">...</p>
