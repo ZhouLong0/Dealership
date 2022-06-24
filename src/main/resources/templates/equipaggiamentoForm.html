@@ -34,7 +34,7 @@
 					<li class="nav-item"><a class="nav-link"
 						th:href="@{/admin/dishes}">Menù</a></li>
 					<li class="nav-item"><a class="nav-link"
-						th:href="@{/admin/chefs}">Chefs</a></li>
+						th:href="@{/admin/filiali}">Branches</a></li>
 					<li class="nav-item ml-md-4"><a
 						class="nav-link btn btn-primary" th:href="@{/logout}">Logout</a>
 					</li>
@@ -47,9 +47,9 @@
 	<!-- Page Header -->
 	<header id="home" class="header">
 		<div class="header-content">
-			<h6>New ingredient :</h6>
-			<form th:action="@{/piatto/ingrediente/} + ${piatto.id}"
-				method="post" th:object="${ingrediente}">
+			<h6>New equipment :</h6>
+			<form th:action="@{/versione/equipaggiamento/} + ${versione.id}"
+				method="post" th:object="${equipaggiamento}">
 
 				<br></br>
 				<div>

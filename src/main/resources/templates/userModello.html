@@ -32,7 +32,7 @@
 					<li class="nav-item"><a class="nav-link" th:href="@{/default}">Home</a></li>
 					<li class="nav-item"><a class="nav-link"
 						th:href="@{/userDishes}">Menù</a></li>
-					<li class="nav-item"><a class="nav-link" href="/userChefs">Chefs</a>
+					<li class="nav-item"><a class="nav-link" href="/userFiliali">Chefs</a>
 					</li>
 					<li class="nav-item ml-md-4"><a
 						class="nav-link btn btn-primary" th:href="@{/logout}">Logout</a></li>
@@ -47,11 +47,11 @@
 		<div class="overlay"></div>
 		<div class="header-content">
 			<h6>
-				<span th:text="${buffet.nome}">Paolo</span>
+				<span th:text="${modello.nome}">Paolo</span>
 
 			</h6>
 			<h3>
-				<span th:text="${buffet.descrizione}">Rossi</span>
+				<span th:text="${modello.descrizione}">Rossi</span>
 			</h3>
 		</div>
 	</header>
@@ -67,12 +67,12 @@
 			<!-- Row -->
 			<div class="row justify-content-between align-items-center">
 				<div class="col-md-5">
-					<h4>Dishes of the buffet</h4>
+					<h4>Versions of the model</h4>
 					<br></br>
 					<ul>
-						<li th:each="piatto : ${piatti}"><a
-							th:href="@{'/userPiatto' + '/' + ${piatto.id}}"
-							th:text="${piatto.nome}">PaoloRossi</a> <br></br></li>
+						<li th:each="versione : ${versioni}"><a
+							th:href="@{'/userVersione' + '/' + ${versione.id}}"
+							th:text="${versione.nome}">PaoloRossi</a> <br></br></li>
 					</ul>
 				</div>
 

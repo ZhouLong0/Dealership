@@ -31,8 +31,8 @@
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><a class="nav-link" th:href="@{/default}">Home</a></li>
 					<li class="nav-item"><a class="nav-link"
-						th:href="@{/userDishes}">Menù</a></li>
-					<li class="nav-item"><a class="nav-link" href="/userChefs">Chefs</a>
+						th:href="@{/userModels}">Menù</a></li>
+					<li class="nav-item"><a class="nav-link" href="/userFiliali">Chefs</a>
 					</li>
 					<li class="nav-item ml-md-4"><a
 						class="nav-link btn btn-primary" th:href="@{/logout}">Logout</a></li>
@@ -47,8 +47,8 @@
 		<div class="overlay"></div>
 		<div class="header-content">
 			<h6>
-				<span th:text="${persona.nome}">Paolo</span> <span
-					th:text="${persona.cognome}">Rossi</span>
+				<span th:text="${filiale.nome}">Paolo</span> <span
+					th:text="${filiale.cognome}">Rossi</span>
 			</h6>
 		</div>
 	</header>
@@ -64,12 +64,12 @@
 			<!-- Row -->
 			<div class="row justify-content-between align-items-center">
 				<div class="col-md-6">
-					<h4>Buffets of the Chef:</h4>
+					<h4>Available models in the branch:</h4>
 					<br></br>
 					<ul>
-						<li th:each="buffet : ${buffets}"><a href="persona.html"
-							th:href="@{'/userBuffet' + '/' + ${buffet.id}}"
-							th:text="${buffet.nome} ">PaoloRossi</a> <br></br></li>
+						<li th:each="modello : ${modelli}"><a href="persona.html"
+							th:href="@{'/userModello' + '/' + ${modello.id}}"
+							th:text="${modello.nome} ">PaoloRossi</a> <br></br></li>
 					</ul>
 				</div>
 

@@ -33,7 +33,7 @@
 					<li class="nav-item"><a class="nav-link"
 						th:href="@{/admin/dishes}">Menù</a></li>
 					<li class="nav-item"><a class="nav-link"
-						th:href="@{/admin/chefs}">Chefs</a></li>
+						th:href="@{/admin/filiali}">Branches</a></li>
 					<li class="nav-item ml-md-4"><a
 						class="nav-link btn btn-primary" th:href="@{/logout}">Logout</a>
 					</li>
@@ -48,20 +48,20 @@
 		<div class="overlay"></div>
 		<div class="header-content">
 			<h6>
-				<span th:text="${piatto.nome}">Paolo</span>
+				<span th:text="${versione.nome}">Paolo</span>
 
 			</h6>
 			<h3>
-				<span th:text="${piatto.descrizione}">Rossi</span>
+				<span th:text="${versione.descrizione}">Rossi</span>
 			</h3>
 
-			<h4>Ingredients: </h4>
+			<h4>Equipments: </h4>
 			<ul>
-				<li th:each="ingrediente : ${ingredienti}"><span
-					th:text="${ingrediente.nome}">PaoloRossi</span></li>
+				<li th:each="equipaggiamento : ${equipaggiamenti}"><span
+					th:text="${equipaggiamento.nome}">PaoloRossi</span></li>
 			</ul>
 			<br></br>
-			<a class="btn btn-outline-primary btn-sm" th:href="@{'/piatto/ingrediente/' + ${piatto.id}}">Add</a>
+			<a class="btn btn-outline-primary btn-sm" th:href="@{'/versione/equipaggiamento/' + ${versione.id}}">Add</a>
 
 		</div>
 	</header>

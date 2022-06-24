@@ -34,7 +34,7 @@
 					<li class="nav-item"><a class="nav-link"
 						th:href="@{/admin/dishes}">Menù</a></li>
 					<li class="nav-item"><a class="nav-link"
-						th:href="@{/admin/chefs}">Chefs</a></li>
+						th:href="@{/admin/filiali}">Branches</a></li>
 					<li class="nav-item ml-md-4"><a
 						class="nav-link btn btn-primary" th:href="@{/logout}">Logout</a></li>
 
@@ -48,9 +48,8 @@
 	<header id="home" class="header">
 		<div class="overlay"></div>
 		<div class="header-content">
-			<h6>Our Chefs Team :</h6>
-			<h3>"Cook for your guests as if they were family, and cook with
-				love."</h3>
+			<h6>Our Branches: :</h6>
+			<h3>"Top branches opened only for you"</h3>
 		</div>
 	</header>
 
@@ -65,15 +64,15 @@
 				<div class="col-md-5">
 				
 					<ul>
-						<li th:each="persona : ${persone}"><a href="persona.html"
-							th:href="@{'/persona' + '/' + ${persona.id}}"
-							th:text="${persona.nome} + ' ' + ${persona.cognome}">PaoloRossi</a>
+						<li th:each="filiale : ${filiali}"><a href="persona.html"
+							th:href="@{'/filiale' + '/' + ${filiale.id}}"
+							th:text="${filiale.nome} + ' ' + ${filiale.cognome}">PaoloRossi</a>
 							<br></br>
 						</li>
 						
 					</ul>
 					<a class="btn btn-outline-primary btn-sm"
-							th:href="@{/personaForm}">Add</a>
+							th:href="@{/filialeForm}">Add</a>
 
 				</div>
 

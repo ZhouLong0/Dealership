@@ -102,7 +102,7 @@ public class ModelloController {
 			bs.save(oldModello);
 			ps.save(filiale);
 			model.addAttribute("filiale", filiale);
-			model.addAttribute("modello", filiale.getModelli());
+			model.addAttribute("modelli", filiale.getModelli());
 			return "filiale.html";
 		}
 

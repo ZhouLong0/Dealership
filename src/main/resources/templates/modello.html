@@ -32,7 +32,7 @@
 					<li class="nav-item"><a class="nav-link"
 						th:href="@{/admin/dishes}">Menù</a></li>
 					<li class="nav-item"><a class="nav-link"
-						th:href="@{/admin/chefs}">Chefs</a></li>
+						th:href="@{/admin/filiali}">Chefs</a></li>
 					<li class="nav-item ml-md-4"><a
 						class="nav-link btn btn-primary" th:href="@{/logout}">Logout</a>
 					</li>
@@ -47,11 +47,11 @@
 		<div class="overlay"></div>
 		<div class="header-content">
 			<h6>
-				<span th:text="${buffet.nome}">Paolo</span>
+				<span th:text="${modello.nome}">Paolo</span>
 
 			</h6>
 			<h3>
-				<span th:text="${buffet.descrizione}">Rossi</span>
+				<span th:text="${modello.descrizione}">Rossi</span>
 			</h3>
 		</div>
 	</header>
@@ -69,13 +69,13 @@
 				<div class="col-md-5">
 				<h4>Dishes of the buffet</h4><br></br>
 					<ul>
-					<li th:each="piatto : ${piatti}"><a 
-						th:href="@{'/piatto' + '/' + ${piatto.id}}"
-						th:text="${piatto.nome}">PaoloRossi</a>
+					<li th:each="versione : ${versioni}"><a 
+						th:href="@{'/versione' + '/' + ${versione.id}}"
+						th:text="${versione.nome}">PaoloRossi</a>
 						<br></br>
 					</li>
 				</ul>
-					<a class="btn btn-outline-primary btn-sm" th:href="@{'/buffet/piatto/' + ${buffet.id}}">Add</a>
+					<a class="btn btn-outline-primary btn-sm" th:href="@{'/modello/versione/' + ${modello.id}}">Add</a>
 
 				</div>
 
