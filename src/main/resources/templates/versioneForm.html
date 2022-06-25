@@ -46,7 +46,9 @@
 
 	<!-- Page Header -->
 	<header id="home" class="header">
+	<div class="overlay"></div>
 		<div class="header-content">
+		
 			<h6>New version :</h6>
 			<form th:action="@{/modello/versione/} + ${modello.id}" method="post" th:object="${versione}">
 		
