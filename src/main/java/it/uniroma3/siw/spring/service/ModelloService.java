@@ -1,5 +1,8 @@
 package it.uniroma3.siw.spring.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +35,13 @@ public class ModelloService {
 	@Transactional
 	public void remove(Modello modello)	{
 		pr.delete(modello);
+	}
+
+	public List<Modello> findAll()	{
+		List<Modello> modelli = new ArrayList<Modello>();
+		for(Modello m : pr.findAll())
+			modelli.add(m);
+		return modelli;
 	}
 	
 }

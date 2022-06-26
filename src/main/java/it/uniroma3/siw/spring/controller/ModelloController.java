@@ -1,5 +1,7 @@
 package it.uniroma3.siw.spring.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -109,6 +111,13 @@ public class ModelloController {
 		model.addAttribute("filiale", filiale);
 		model.addAttribute("modello", oldModello);
 		return "modelloModifyForm.html";
+	}
+	
+	@GetMapping("/models")
+	public String getBuffets(Model model)	{
+		 List<Modello> modelli = bs.findAll();
+		 model.addAttribute("modelli", modelli);
+		 return "userModelli.html";
 	}
 
 }

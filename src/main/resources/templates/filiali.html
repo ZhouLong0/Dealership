@@ -57,36 +57,20 @@
 
 	<!-- section -->
 	<section>
-		<!-- Container -->
-		<div class="container">
-			<!-- Row -->
-			<div class="row justify-content-between align-items-center">
-				<div class="col-md-5">
-				
-					<ul>
-						<li th:each="filiale : ${filiali}"><a href="persona.html"
-							th:href="@{'/filiale' + '/' + ${filiale.id}}"
-							th:text="${filiale.nome} + ' ' + ${filiale.cognome}">PaoloRossi</a>
-							<br></br>
-						</li>
-						
-					</ul>
-					<a class="btn btn-outline-primary btn-sm"
-							th:href="@{/filialeForm}">Add</a>
-
-				</div>
-
-				<div class="col-md-6">
-					<div class="img-wrapper">
-						<div class="after right"></div>
-						<img src="/images/chef-1.jpg" class="w-100" alt="About Us">
-					</div>
-				</div>
-			</div>
-			<!-- End of Row -->
-
+		<div class="car-columns">
+			<div class="column" th:each="filiale : ${filiali}">
+			<img src="/images/branch.png">
+			
+			<a href="persona.html"
+				th:href="@{'/filiale' + '/' + ${filiale.id}}"
+				th:text="${filiale.nome} + ' ' + ${filiale.cognome}">PaoloRossi</a>
+				<br></br><br></br><br></br></div>
 		</div>
-		<!-- End of Container-->
+		
+		<div class="addcenter"><a class="btn btn-outline-primary btn-sm"
+							th:href="@{/filialeForm}">Add</a>
+							</div>
+
 
 
 	</section>
@@ -94,7 +78,7 @@
 
 
 
-		<!-- Section -->
+	<!-- Section -->
 	<section class="pb-0">
 		<!-- Container -->
 		<div class="container">
@@ -105,11 +89,12 @@
 						<h6 class="font-weight-bold">ABOUT US</h6>
 					</li>
 					<li class="list-body">
-						<p>We are a dealership managed by students of RomaTre University</p> <a href="#"><strong
-							class="text-primary">CAR</strong> <span class="text-dark">3</span></a>
+						<p>We are a dealership managed by students of RomaTre
+							University</p> <a href="#"><strong class="text-primary">CAR</strong>
+							<span class="text-dark">3</span></a>
 					</li>
 				</ul>
-				
+
 				<ul class="list">
 					<li class="list-head">
 						<h6 class="font-weight-bold">CONTACT INFO</h6>
@@ -129,9 +114,7 @@
 
 			<!-- foooter -->
 			<footer class="footer">
-				<p>
-					Copyright 2022
-				</p>
+				<p>Copyright 2022</p>
 			</footer>
 			<!-- End of Footer-->
 
