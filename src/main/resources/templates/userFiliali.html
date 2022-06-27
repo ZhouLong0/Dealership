@@ -3,7 +3,6 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>RomaTre Catering</title>
 
 
 	<link rel="stylesheet" th:href=@{css/style.css}>
@@ -16,7 +15,7 @@
 	<nav id="scrollspy" class="navbar page-navbar navbar-light navbar-expand-md fixed-top" data-spy="affix"
 		data-offset-top="20">
 		<div class="container">
-			<a class="navbar-brand" href="/"><strong class="text-primary">Car</strong>
+			<a class="navbar-brand" href="/"><strong class="text-primary">CAR</strong>
 				<span class="text-dark">3</span></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,12 +54,12 @@
 	<section>
 		<div class="car-columns">
 			<div class="column" th:each="filiale : ${filiali}">
-			<img th:src=@{images/branch.png}>
-			
-			<a href="persona.html"
-				th:href="@{'/userFiliale' + '/' + ${filiale.id}}"
-				th:text="${filiale.nome} + ' ' + ${filiale.cognome}">PaoloRossi</a>
-				<br></br><br></br><br></br></div>
+				<img th:src=@{images/branch.png}>
+
+				<a th:href="@{'/userFiliale' + '/' + ${filiale.id}}"
+					th:text="${filiale.nome} + ' ' + ${filiale.indirizzo}"></a>
+				<br></br><br></br><br></br>
+			</div>
 		</div>
 
 
@@ -70,7 +69,7 @@
 
 
 
-		<!-- Section -->
+	<!-- Section -->
 	<section class="pb-0">
 		<!-- Container -->
 		<div class="container">
@@ -81,11 +80,11 @@
 						<h6 class="font-weight-bold">ABOUT US</h6>
 					</li>
 					<li class="list-body">
-						<p>We are a dealership managed by students of RomaTre University</p> <a href="#"><strong
-							class="text-primary">CAR</strong> <span class="text-dark">3</span></a>
+						<p>We are a car dealership managed by students of RomaTre University</p> <a href="#"><strong
+								class="text-primary">CAR</strong> <span class="text-dark">3</span></a>
 					</li>
 				</ul>
-				
+
 				<ul class="list">
 					<li class="list-head">
 						<h6 class="font-weight-bold">CONTACT INFO</h6>
@@ -118,4 +117,5 @@
 
 
 </body>
+
 </html>

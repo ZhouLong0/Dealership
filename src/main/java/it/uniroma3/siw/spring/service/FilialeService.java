@@ -33,7 +33,7 @@ public class FilialeService {
 	}
 	
 	public boolean alreadyExists(Filiale filiale)	{
-		return pr.existsByNomeAndCognomeAndEta(filiale.getNome(), filiale.getCognome(), filiale.getEta());
+		return pr.existsByNomeAndIndirizzoAndPhone(filiale.getNome(), filiale.getIndirizzo(), filiale.getPhone());
 	}
 
 }

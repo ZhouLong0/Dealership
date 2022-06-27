@@ -1,41 +1,36 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-<title>RomaTre Catering</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/style.css">
 
 </head>
+
 <body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
 
 	<!-- Page Navbar -->
-	<nav id="scrollspy"
-		class="navbar page-navbar navbar-light navbar-expand-md fixed-top"
-		data-spy="affix" data-offset-top="20">
+	<nav id="scrollspy" class="navbar page-navbar navbar-light navbar-expand-md fixed-top" data-spy="affix"
+		data-offset-top="20">
 		<div class="container">
-			<a class="navbar-brand" href="/"><strong class="text-primary">Roma3</strong>
-				<span class="text-dark">Catering</span></a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse"
-				data-target="#navbarSupportedContent"
-				aria-controls="navbarSupportedContent" aria-expanded="false"
-				aria-label="Toggle navigation">
+			<a class="navbar-brand" href="/"><strong class="text-primary">CAR</strong>
+				<span class="text-dark">3</span></a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+				aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
 			</button>
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><a class="nav-link" th:href="@{/default}">Home</a></li>
-					<li class="nav-item"><a class="nav-link"
-						th:href="@{/models}">Menù</a></li>
-					<li class="nav-item"><a class="nav-link" href="/userFiliali">Chefs</a>
+					<li class="nav-item"><a class="nav-link" th:href="@{/models}">Models</a></li>
+					<li class="nav-item"><a class="nav-link" href="/userFiliali">Branches</a>
 					</li>
-					<li class="nav-item ml-md-4"><a
-						class="nav-link btn btn-primary" th:href="@{/logout}">Logout</a></li>
+					<li class="nav-item ml-md-4"><a class="nav-link btn btn-primary" th:href="@{/logout}">Logout</a>
+					</li>
 				</ul>
 			</div>
 		</div>
@@ -47,8 +42,7 @@
 		<div class="overlay"></div>
 		<div class="header-content">
 			<h6>
-				<span th:text="${filiale.nome}">Paolo</span> <span
-					th:text="${filiale.cognome}">Rossi</span>
+				<span th:text="${filiale.nome}"></span> <span th:text="${filiale.indirizzo}"></span>
 			</h6>
 		</div>
 	</header>
@@ -67,16 +61,17 @@
 					<h4>Available models in the branch:</h4>
 					<br></br>
 					<ul>
-						<li th:each="modello : ${modelli}"><a href="persona.html"
-							th:href="@{'/userModello' + '/' + ${modello.id}}"
-							th:text="${modello.nome} ">PaoloRossi</a> <br></br></li>
+						<li th:each="modello : ${modelli}">
+							<a th:href="@{'/userModello' + '/' + ${modello.id}}" th:text="${modello.nome} "></a>
+							<br></br>
+						</li>
 					</ul>
 				</div>
 
 				<div class="col-md-6">
 					<div class="img-wrapper">
 						<div class="after right"></div>
-						<img src="/images/buffet-1.jpg" class="w-100" alt="About Us">
+						<img src="/images/branch.png" class="w-100" alt="About Us">
 					</div>
 				</div>
 			</div>
@@ -89,7 +84,7 @@
 
 
 
-		<!-- Section -->
+	<!-- Section -->
 	<section class="pb-0">
 		<!-- Container -->
 		<div class="container">
@@ -100,11 +95,11 @@
 						<h6 class="font-weight-bold">ABOUT US</h6>
 					</li>
 					<li class="list-body">
-						<p>We are a dealership managed by students of RomaTre University</p> <a href="#"><strong
-							class="text-primary">CAR</strong> <span class="text-dark">3</span></a>
+						<p>We are a car dealership managed by students of RomaTre University</p> <a href="#"><strong
+								class="text-primary">CAR</strong> <span class="text-dark">3</span></a>
 					</li>
 				</ul>
-				
+
 				<ul class="list">
 					<li class="list-head">
 						<h6 class="font-weight-bold">CONTACT INFO</h6>
@@ -137,4 +132,5 @@
 
 
 </body>
+
 </html>

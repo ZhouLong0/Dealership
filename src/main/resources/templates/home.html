@@ -2,7 +2,6 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="utf-8">
-<title>RomaTre Catering</title>
 
 
 <link rel="stylesheet" th:href=@{css/style.css}>
@@ -15,8 +14,8 @@
 		class="navbar page-navbar navbar-light navbar-expand-md fixed-top"
 		data-spy="affix" data-offset-top="20">
 		<div class="container">
-			<a class="navbar-brand" href="/"><strong class="text-primary">Roma3</strong>
-				<span class="text-dark">Catering</span></a>
+			<a class="navbar-brand" href="/"><strong class="text-primary">CAR</strong>
+				<span class="text-dark">3</span></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse"
 				data-target="#navbarSupportedContent"
 				aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -28,14 +27,13 @@
 				<ul class="navbar-nav ml-auto">
 					<li class="nav-item"><a class="nav-link" href="/">Home</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" th:href="@{/userDishes}">Menù</a>
+					<li class="nav-item"><a class="nav-link" th:href="@{/models}">Models</a>
 					</li>
-					<li class="nav-item"><a class="nav-link" th:href="@{/userFiliali}">Chefs</a>
+					<li class="nav-item"><a class="nav-link" th:href="@{/userFiliali}">Branches</a>
 					</li>
 					<li class="nav-item ml-md-4"><a
 						class="nav-link btn btn-primary" th:href="@{/logout}">Logout</a>
 					</li>
-					
 				</ul>
 			</div>
 		</div>
@@ -46,8 +44,11 @@
 	<header id="home" class="header">
 		<div class="overlay"></div>
 		<div class="header-content">
-			<h6>ROMA3 CATERING</h6>
-			<h3>Taste the flavors of Italy</h3>
+			<h6>CAR3</h6>
+			<br></br>
+			<br></br>
+			<br></br>
+			<h3></h3>
 		</div>
 	</header>
 	<!-- End of Page Header -->
@@ -62,15 +63,15 @@
 				<div class="col-md-6">
 					<div class="img-wrapper">
 						<div class="after"></div>
-						<img th:src= @{images/buffet-1.jpg} class="w-100" alt="About Us">
+						<img th:src= @{images/branch.png} class="w-100" alt="About Us">
 					</div>
 				</div>
 				<div class="col-md-5">
-					<h6 class="title mb-3">Buffets</h6>
+					<h6 class="title mb-3">Models</h6>
 
-					<p>We specializes in delicious food featuring fresh ingredients and masterful preparation by the our culinary team</p>
+					<p>Our models are the best on the market. We are looking for models all over the world to satisfy your every need.</p>
 					<p class="text-muted"></p>
-					<a class="btn btn-outline-primary btn-sm" th:href="@{/persona}">Take a look to our buffets</a>
+					<a class="btn btn-outline-primary btn-sm" th:href="@{/models}">Take a look to our models</a>
 				</div>
 			</div>
 			<!-- End of Row -->
@@ -86,18 +87,15 @@
 			<!-- Row -->
 			<div class="row justify-content-between align-items-center">
 				<div class="col-md-5">
-					<h6 class="title mb-3">Chefs</h6>
-					<p>Our dedicated team of highly-respected chefs have won some of the most prestigious awards in the industry. With their years of combined experience in food and technical know-how, they're able to elevate every Custom Culinary® customer to new heights. Take a moment to get to know these incredible chefs that can transform your brand through flavor and culinary expertise.</p>
-					<p class="text-muted">
-					"Cook for your guests as if they were family, and cook with love."
-					</p>
-					<a class="btn btn-outline-primary btn-sm" th:href="@{userfiliali}">Take a look to our chefs</a>
+					<h6 class="title mb-3">Branches</h6>
+					<p>Our branches are scattered around the world and allow you to shop super convenient. Take a moment to get to know these amazing branches.</p>
+					<a class="btn btn-outline-primary btn-sm" th:href="@{userFiliali}">Take a look to our branches</a>
 
 				</div>
 				<div class="col-md-6">
 					<div class="img-wrapper">
 						<div class="after right"></div>
-						<img th:src=@{images/chef-1.jpg} class="w-100" alt="About Us">
+						<img th:src=@{images/car.jpg} class="w-100" alt="About Us">
 					</div>
 				</div>
 			</div>
@@ -109,7 +107,7 @@
 
 
 
-		<!-- Section -->
+	<!-- Section -->
 	<section class="pb-0">
 		<!-- Container -->
 		<div class="container">
@@ -120,7 +118,7 @@
 						<h6 class="font-weight-bold">ABOUT US</h6>
 					</li>
 					<li class="list-body">
-						<p>We are a dealership managed by students of RomaTre University</p> <a href="#"><strong
+						<p>We are a car dealership managed by students of RomaTre University</p> <a href="#"><strong
 							class="text-primary">CAR</strong> <span class="text-dark">3</span></a>
 					</li>
 				</ul>
@@ -158,3 +156,4 @@
 
 </body>
 </html>
+

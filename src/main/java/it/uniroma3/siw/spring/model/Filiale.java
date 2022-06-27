@@ -24,14 +24,9 @@ public class Filiale {
 	private String nome;
 	
 	@NotBlank
-	private String cognome;
+	private String indirizzo;
 	
 	private String phone;
-	
-	@NotNull
-	@Min(0)
-	@Max(120)
-	private Integer eta;
 	
 	@OneToMany(cascade = CascadeType.ALL)
 	private List<Modello> modelli;
@@ -56,33 +51,9 @@ public class Filiale {
 		this.nome = nome;
 	}
 
-	public String getCognome() {
-		return cognome;
-	}
-
-	public void setCognome(String cognome) {
-		this.cognome = cognome;
-	}
-
-	public Integer getEta() {
-		return eta;
-	}
-
-	public void setEta(Integer eta) {
-		this.eta = eta;
-	}
-
 	public List<Modello> getModelli() {
 		return modelli;
 	}
-//
-//	public void setBuffets(List<Buffet> buffets) {
-//		this.buffets = buffets;
-//	}
-//	
-//	public void addBuffet(Buffet buffet)	{
-//		this.buffets.add(buffet);
-//	}
 
 	public String getPhone() {
 		return phone;
@@ -90,6 +61,18 @@ public class Filiale {
 
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+
+	public String getIndirizzo() {
+		return indirizzo;
+	}
+
+	public void setIndirizzo(String indirizzo) {
+		this.indirizzo = indirizzo;
+	}
+
+	public void setModelli(List<Modello> modelli) {
+		this.modelli = modelli;
 	}
 
 	
