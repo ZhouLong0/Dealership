@@ -47,26 +47,35 @@
 	</header>
 
 
+<!-- Container -->
+	<div class="container">
+	<br></br><br></br>
+		<!-- Row -->
+		<div class="row justify-content-between align-items-center">
+			<div class="col-md-6">
+				<h4>Explore all our branches</h4>
+				<br></br>
+				<ul>
+					<li th:each="filiale : ${filiali}"><a
+						th:href="@{'/filiale' + '/' + ${filiale.id}}"
+					th:text="${filiale.nome} + ' ' + ${filiale.indirizzo}+ ' ' + ${filiale.phone}"></a> <br></br>
+					</li>
+				</ul>
+				<a class="btn btn-outline-primary btn-sm" th:href="@{/filialeForm}">Add</a>
+			</div>
 
-	<!-- section -->
-	<section>
-		<div class="car-columns">
-			<div class="column" th:each="filiale : ${filiali}">
-				<img src="/images/branch.png">
-
-				<a th:href="@{'/filiale' + '/' + ${filiale.id}}"
-					th:text="${filiale.nome} + ' ' + ${filiale.indirizzo}+ ' ' + ${filiale.phone}"></a>
-				<br></br><br></br><br></br>
+			<div class="col-md-6">
+				<div class="img-wrapper">
+					<div class="after right"></div>
+					<img src="/images/branch0.jpg" class="w-100" alt="About Us">
+				</div>
 			</div>
 		</div>
-
-		<div class="addcenter"><a class="btn btn-outline-primary btn-sm" th:href="@{/filialeForm}">Add</a>
-		</div>
-
+	</div>
+	<!-- End of Container-->
 
 
-	</section>
-	<!-- End of Section -->
+	
 
 
 

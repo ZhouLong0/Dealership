@@ -39,10 +39,11 @@
 	<!-- End of Page Navbar -->
 
 	<!-- Page Header -->
-	<header id="home" class="header">
+	<header id="home" class="header1">
+	<div class="overlay"></div>
 		<div class="header-content">
 			<h6>Modify :</h6>
-			<form th:action="@{/filiale/modifyModello/} + ${oldModello.id}+ '/' +${filiale.id}" method="post" th:object="${modello}">
+			<form th:action="@{/filiale/modifyModello/} + ${oldModello.id}+ '/' +${filiale.id}" method="post" th:object="${oldModello}">
 		
 				<br></br>
 				<div>
