@@ -33,6 +33,7 @@ public class VersioneController {
 	@PostMapping("modello/versione/{idModello}")
 	public String addVersione(@ModelAttribute("versione") Versione versione, @PathVariable("idModello") Long id, Model model)	{
 		Modello modello = bs.findById(id);
+		versione.setModello(modello);
 		modello.addVersione(versione);
 		bs.save(modello);
 		model.addAttribute("modello", modello);

@@ -44,12 +44,28 @@
 		<div class="overlay"></div>
 		<div class="header-content">
 			<h6>
-				<span th:text="${versione.nome}"></span>
+				The CAR you have chosen:
 
 			</h6>
-			<h3>
+			
+			<div class="parent">
+			<div class="leftModel">
+			<h3> Model: </h3><h4 th:text="${versione.modello.nome}"></h4>
+			<h5 th:text="${versione.modello.descrizione}"></h5>
+			</div>
+			
+			
+			<div class="rightModel">
+			<h3> Version: </h3>
+			<h4>
+				<span th:text="${versione.nome}"></span>
+			</h4>
+			<h5>
 				<span th:text="${versione.descrizione}"></span>
-			</h3>
+			</h5>
+			</div>
+			</div>
+			
 
 			<h4>Equipments: </h4>
 			<ul>

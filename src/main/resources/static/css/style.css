@@ -3389,7 +3389,7 @@ section .addcenter{
 .header1 .header-content h6 {
   margin-bottom: 25px;
   font-size: calc(35px + (60 - 35) * ((100vw - 300px) / (1200 - 300)));
-  color: #000080;
+  color: #80ffff;
 }
 
 .header1 .header-content h3 {
@@ -3428,4 +3428,21 @@ section .addcenter{
   text-align: center;
   padding: 1rem;
   background: #fdeca9 !important;
+}
+
+
+.parent {
+	display: flex;
+	flex-direction: row;
+}
+
+.leftModel {
+	width: 40%;
+	text-align: center;
+	
+}
+
+.rightModel {
+	width: 60%;
+	text-align: center;
 }
