@@ -14,15 +14,15 @@ import it.uniroma3.siw.spring.repository.VersioneRepository;
 public class VersioneService {
 
 	@Autowired
-	private VersioneRepository pr;
+	private VersioneRepository versioneRepository;
 	
 	public Versione findById(Long id)	{
-		return pr.findById(id).get();
+		return versioneRepository.findById(id).get();
 	}
 
 	@Transactional
 	public void save(Versione versione)	{
-		pr.save(versione);
+		versioneRepository.save(versione);
 	}
 	
 }

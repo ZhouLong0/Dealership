@@ -17,25 +17,25 @@ import it.uniroma3.siw.spring.service.VersioneService;
 public class VersioneController {
 	
 	@Autowired
-	private ModelloService bs;
+	private ModelloService modelloService;
 	
 	@Autowired
-	private VersioneService pis;
+	private VersioneService versioneService;
 
 	@GetMapping("modello/versione/{idModello}")
 	public String getModello(@PathVariable("idModello") Long id, Model model)	{
 		model.addAttribute("versione", new Versione());
-		Modello modello = bs.findById(id);
+		Modello modello = modelloService.findById(id);
 		model.addAttribute("modello", modello);
 		return "versioneForm.html";
 	}
 	
 	@PostMapping("modello/versione/{idModello}")
 	public String addVersione(@ModelAttribute("versione") Versione versione, @PathVariable("idModello") Long id, Model model)	{
-		Modello modello = bs.findById(id);
+		Modello modello = modelloService.findById(id);
 		versione.setModello(modello);
 		modello.addVersione(versione);
-		bs.save(modello);
+		modelloService.save(modello);
 		model.addAttribute("modello", modello);
 		model.addAttribute("versioni", modello.getVersioni());
 		return "modello.html";
@@ -44,7 +44,7 @@ public class VersioneController {
 	
 	@GetMapping("/versione/{id}")
 	public String getVersione(@PathVariable("id") Long id, Model model)	{
-		Versione versione = pis.findById(id);
+		Versione versione = versioneService.findById(id);
 		model.addAttribute("versione",versione);
 		model.addAttribute("equipaggiamenti", versione.getEquipaggiamenti());
 		return "versione.html";
@@ -52,7 +52,7 @@ public class VersioneController {
 	
 	@GetMapping("/userVersione/{id}")
 	public String getVersioneUser(@PathVariable("id") Long id, Model model)	{
-		Versione versione = pis.findById(id);
+		Versione versione = versioneService.findById(id);
 		model.addAttribute("versione",versione);
 		model.addAttribute("equipaggiamenti", versione.getEquipaggiamenti());
 		return "userVersione.html";

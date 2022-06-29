@@ -8,4 +8,5 @@ public interface FilialeRepository extends CrudRepository<Filiale, Long> {
 
 	public boolean existsByNomeAndIndirizzoAndPhone(String nome, String indirizzo, String phone);
 	
+	public long count();
 }

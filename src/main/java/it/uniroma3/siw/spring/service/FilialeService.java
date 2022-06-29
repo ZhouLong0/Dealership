@@ -14,26 +14,29 @@ import it.uniroma3.siw.spring.repository.FilialeRepository;
 @Service
 public class FilialeService {
 	@Autowired
-	private FilialeRepository pr;
+	private FilialeRepository filialeRepository;
 	
 	@Transactional
 	public void save(Filiale filiale)	{
-		pr.save(filiale);
+		filialeRepository.save(filiale);
 	}
 	
 	public Filiale findById(Long id)	{
-		return pr.findById(id).get();
+		return filialeRepository.findById(id).get();
 	}
 	
 	public List<Filiale> findAll()	{
 		List<Filiale> filiali = new ArrayList<>();
-		for(Filiale f : pr.findAll())
+		for(Filiale f : filialeRepository.findAll())
 			filiali.add(f);
 		return filiali;
 	}
 	
 	public boolean alreadyExists(Filiale filiale)	{
-		return pr.existsByNomeAndIndirizzoAndPhone(filiale.getNome(), filiale.getIndirizzo(), filiale.getPhone());
+		return filialeRepository.existsByNomeAndIndirizzoAndPhone(filiale.getNome(), filiale.getIndirizzo(), filiale.getPhone());
 	}
 
+	public long count()	{
+		return filialeRepository.count();
+	}
 }

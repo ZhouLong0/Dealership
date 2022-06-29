@@ -16,21 +16,21 @@ import it.uniroma3.siw.spring.service.VersioneService;
 public class EquipaggiamentoController {
 
 	@Autowired
-	private VersioneService pis;
+	private VersioneService versioneService;
 
 	@GetMapping("versione/equipaggiamento/{idVersione}")
 	public String getModello(@PathVariable("idVersione") Long id, Model model)	{
 		model.addAttribute("equipaggiamento", new Equipaggiamento());
-		Versione versione = pis.findById(id);
+		Versione versione = versioneService.findById(id);
 		model.addAttribute("versione", versione);
 		return "equipaggiamentoForm.html";
 	}
 	
 	@PostMapping("versione/equipaggiamento/{idVersione}")
 	public String addVersione(@ModelAttribute("equipaggiamento") Equipaggiamento equipaggiamento, @PathVariable("idVersione") Long id, Model model)	{
-		Versione versione = pis.findById(id);
+		Versione versione = versioneService.findById(id);
 		versione.addEquipaggiamento(equipaggiamento);
-		pis.save(versione);
+		versioneService.save(versione);
 		model.addAttribute("versione", versione);
 		model.addAttribute("equipaggiamenti", versione.getEquipaggiamenti());
 		return "versione.html";

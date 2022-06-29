@@ -22,20 +22,20 @@ import it.uniroma3.siw.spring.service.FilialeService;
 @Controller
 public class FilialeController {
 	@Autowired
-	private FilialeService ps;
+	private FilialeService filialeService;
 	@Autowired
-	private FilialeValidator validator;
+	private FilialeValidator filialeValidator;
 	
 	//convenzione: get per operazioni di lettura, post per operazioni di scrittura
 	//binding dei dati
 	
 	@PostMapping("/filiale")
 	public String addFiliale(@Valid @ModelAttribute("filiale") Filiale filiale, BindingResult bindingResults, Model model)	{
-		validator.validate(filiale, bindingResults);
+		filialeValidator.validate(filiale, bindingResults);
 		
 		if(!bindingResults.hasErrors())	{
 			
-			ps.save(filiale);
+			filialeService.save(filiale);
 			model.addAttribute("filiale", filiale);
 			model.addAttribute("modelli", filiale.getModelli());
 			return "filiale.html";
@@ -43,24 +43,24 @@ public class FilialeController {
 		return "filialeForm.html";
 	}
 	
-	//richiede tutte le persone
+	
 	@GetMapping("/filiale")
 	public String getFiliali(Model model)	{
-		 List<Filiale> filiali = ps.findAll();
+		 List<Filiale> filiali = filialeService.findAll();
 		 model.addAttribute("filiali", filiali);
 		 return "filiale.html";
 	}
 	
 	@GetMapping("/userFiliali")
 	public String getFilialiUser(Model model)	{
-		 List<Filiale> filiali = ps.findAll();
+		 List<Filiale> filiali = filialeService.findAll();
 		 model.addAttribute("filiali", filiali);
 		 return "userFiliali.html";
 	}
 	
 	@GetMapping("/filiale/{id}")
 	public String getFiliale(@PathVariable("id") Long id, Model model)	{
-		Filiale filiale = ps.findById(id);
+		Filiale filiale = filialeService.findById(id);
 		model.addAttribute("filiale",filiale);
 		model.addAttribute("modelli", filiale.getModelli());
 		return "filiale.html";
@@ -68,7 +68,7 @@ public class FilialeController {
 	
 	@GetMapping("/userFiliale/{id}")
 	public String getChef(@PathVariable("id") Long id, Model model)	{
-		Filiale filiale = ps.findById(id);
+		Filiale filiale = filialeService.findById(id);
 		model.addAttribute("filiale",filiale);
 		model.addAttribute("modelli", filiale.getModelli());
 		return "userFiliale.html";
@@ -82,8 +82,10 @@ public class FilialeController {
 	
 	@RequestMapping(value="/admin/filiali", method = RequestMethod.GET)
     public String addProdotto(Model model) {
-		List<Filiale> filiali = ps.findAll();
+		List<Filiale> filiali = filialeService.findAll();
 		model.addAttribute("filiali", filiali);
+		long count = filialeService.count();
+		model.addAttribute("count", count);
         return "filiali.html";
     }
 }

@@ -17,29 +17,29 @@ import it.uniroma3.siw.spring.repository.FilialeRepository;
 public class ModelloService {
 
 	@Autowired
-	private ModelloRepository pr;
+	private ModelloRepository modelloRepository;
 	
 	public Modello findById(Long id)	{
-		return pr.findById(id).get();
+		return modelloRepository.findById(id).get();
 	}
 	
 	public void deleteById(Long id)	{
-		pr.deleteById(id);
+		modelloRepository.deleteById(id);
 	}
 
 	@Transactional
 	public void save(Modello modello)	{
-		pr.save(modello);
+		modelloRepository.save(modello);
 	}
 	
 	@Transactional
 	public void remove(Modello modello)	{
-		pr.delete(modello);
+		modelloRepository.delete(modello);
 	}
 
 	public List<Modello> findAll()	{
 		List<Modello> modelli = new ArrayList<Modello>();
-		for(Modello m : pr.findAll())
+		for(Modello m : modelloRepository.findAll())
 			modelli.add(m);
 		return modelli;
 	}
